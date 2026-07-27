@@ -28,7 +28,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Cache;
 
-class AdminPanelProvider extends PanelProvider
+class LobbyPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
@@ -36,32 +36,32 @@ class AdminPanelProvider extends PanelProvider
         $panel
             ->default()
             ->login()
-            ->id(config('bites.ui.panels.admin.0', 'admin'))
-            ->path(config('bites.ui.panels.admin.1', 'admin'))
-            ->colors(['primary' => config('bites.ui.panels.admin.2', Color::Green)])
-            ->brandName(config('bites.ui.panels.admin.3', 'Administration'))
-            ->homeUrl(fn(): string => route(config('bites.ui.panels.admin.4', 'filament.admin.pages.dashboard')))
+            ->id(config('bites.ui.panels.lobby.0', 'lobby'))
+            ->path(config('bites.ui.panels.lobby.1', 'lobby'))
+            ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Green)])
+            ->brandName(config('bites.ui.panels.lobby.3', 'Lobbyistration'))
+            ->homeUrl(fn(): string => route(config('bites.ui.panels.lobby.4', 'filament.lobby.pages.dashboard')))
 
             // Discover for UI
-            ->discoverResources(in: app_path('Http/UI/Admin/Resources'), for: 'App\\Http\\UI\\Admin\\Resources')
-            ->discoverPages(in: app_path('Http/UI/Admin/Pages'), for: 'App\Http\UI\Admin\Pages')
-            ->discoverWidgets(in: app_path('Http/UI/Admin/Widgets'), for: 'App\Http\UI\Admin\Widgets');
+            ->discoverResources(in: app_path('Http/UI/Lobby/Resources'), for: 'App\\Http\\UI\\Lobby\\Resources')
+            ->discoverPages(in: app_path('Http/UI/Lobby/Pages'), for: 'App\Http\UI\Lobby\Pages')
+            ->discoverWidgets(in: app_path('Http/UI/Lobby/Widgets'), for: 'App\Http\UI\Lobby\Widgets');
 
         $packages = Cache::get('rimba_packages', []);
 
         foreach ($packages as $package => $namespace) {
             $panel
                 ->discoverResources(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Admin/Resources', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Admin\\Resources',
+                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Resources', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Resources',
                 )
                 ->discoverPages(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Admin/Pages', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Admin\\Pages',
+                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Pages', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Pages',
                 )
                 ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Admin/Widgets', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Admin\\Widgets',
+                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Widgets', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Widgets',
                 );
         }
         return $panel
