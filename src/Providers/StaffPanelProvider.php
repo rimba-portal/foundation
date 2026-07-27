@@ -28,39 +28,39 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Cache;
 
-class LobbyPanelProvider extends PanelProvider
+class StaffPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
         $panel
             ->default()
             ->login()
-            ->id(config('bites.ui.panels.lobby.0', 'lobby'))
-            ->path(config('bites.ui.panels.lobby.1', 'lobby'))
-            ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Green)])
-            ->brandName(config('bites.ui.panels.lobby.3', 'Lobbyistration'))
-            ->homeUrl(fn(): string => route(config('bites.ui.panels.lobby.4', 'filament.lobby.pages.dashboard')))
+            ->id(config('bites.ui.panels.staff.0', 'staff'))
+            ->path(config('bites.ui.panels.staff.1', 'staff'))
+            ->colors(['primary' => config('bites.ui.panels.staff.2', Color::Green)])
+            ->brandName(config('bites.ui.panels.staff.3', 'Staffistration'))
+            ->homeUrl(fn(): string => route(config('bites.ui.panels.staff.4', 'filament.staff.pages.dashboard')))
 
             // Discover for UI
-            ->discoverResources(in: app_path('Http/UI/Lobby/Resources'), for: 'App\\Http\\UI\\Lobby\\Resources')
-            ->discoverPages(in: app_path('Http/UI/Lobby/Pages'), for: 'App\\Http\\UI\\Lobby\\Pages')
-            ->discoverWidgets(in: app_path('Http/UI/Lobby/Widgets'), for: 'App\\Http\\UI\\Lobby\\Widgets');
+            ->discoverResources(in: app_path('Http/UI/Staff/Resources'), for: 'App\\Http\\UI\\Staff\\Resources')
+            ->discoverPages(in: app_path('Http/UI/Staff/Pages'), for: 'App\\Http\\UI\\Staff\\Pages')
+            ->discoverWidgets(in: app_path('Http/UI/Staff/Widgets'), for: 'App\\Http\\UI\\Staff\\Widgets');
 
         $packages = Cache::get('rimba_packages', []);
 
         foreach ($packages as $package => $namespace) {
             $panel
                 ->discoverResources(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Lobby/Resources', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Resources',
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Resources', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Staff\\Resources',
                 )
                 ->discoverPages(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Lobby/Pages', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Pages',
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Pages', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Staff\\Pages',
                 )
                 ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Lobby/Widgets', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Widgets',
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Widgets', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Staff\\Widgets',
                 );
         }
 
