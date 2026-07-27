@@ -36,13 +36,16 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rimba\\Foundation\\FoundationServiceProvider"
+                "Rimba\\Foundation\\FoundationServiceProvider",
+                "Rimba\\Foundation\\Providers\\AdminPanelProvider",
+                "Rimba\\Foundation\\Providers\\LobbyPanelProvider",
+                "Rimba\\Foundation\\Providers\\StaffPanelProvider"
             ]
         }
     },
     "autoload": {
         "psr-4": {
-           "Rimba\\Foundation\\": "src/"
+            "Rimba\\Foundation\\": "src/"
         }
     },
     "minimum-stability": "alpha",

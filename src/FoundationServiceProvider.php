@@ -11,7 +11,7 @@ use ReflectionClass;
 
 class FoundationServiceProvider extends BitesServiceProvider
 {
-    // protected string $configFile = __DIR__ . '/../config/bites.php';
+    protected string $configFile = __DIR__ . '/../config/bites.php';
 
     protected function bootPackage(): void
     {
@@ -35,7 +35,7 @@ class FoundationServiceProvider extends BitesServiceProvider
         $commands = [];
         foreach (glob($commandDir . '/*.php') as $file) {
             $className = basename($file, '.php');
-            $class = 'Rimba\\Base\\Console\\Commands\\' . $className;
+            $class = 'Rimba\\Foundation\\Console\\Commands\\' . $className;
             if (class_exists($class) && is_subclass_of($class, Command::class)) {
                 $reflection = new ReflectionClass($class);
                 if (! $reflection->isAbstract()) {
