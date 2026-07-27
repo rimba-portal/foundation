@@ -35,7 +35,7 @@ class AdminPanelProvider extends PanelProvider
         // dd(config('bites'));
         $panel
             ->default()
-            ->login(Login::class)
+            ->login()
             ->id(config('bites.ui.panels.admin.0', 'admin'))
             ->path(config('bites.ui.panels.admin.1', 'admin'))
             ->colors(['primary' => config('bites.ui.panels.admin.2', Color::Green)])
@@ -44,38 +44,28 @@ class AdminPanelProvider extends PanelProvider
 
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Admin/Resources'), for: 'App\\Http\\UI\\Admin\\Resources')
-            ->discoverPages(in: app_path('Http/UI/Admin/Pages'), for: 'App\Http\UI\Admin\Pages')
-            ->discoverWidgets(in: app_path('Http/UI/Admin/Widgets'), for: 'App\Http\UI\Admin\Widgets');
+            ->discoverPages(in: app_path('Http/UI/Admin/Pages'), for: 'App\\Http\\UI\\Admin\\Pages')
+            ->discoverWidgets(in: app_path('Http/UI/Admin/Widgets'), for: 'App\\Http\\UI\\Admin\\Widgets');
 
-        $packageFolders = Cache::get('rimba_packages', []);
+        $packages = Cache::get('rimba_packages', []);
 
-        foreach ($packageFolders as $folder) {
-
-            $studlyName = str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $folder)));
-
-            // 4. Register directories inside the Filament panel
+        foreach ($packages as $package => $namespace) {
             $panel
                 ->discoverResources(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Admin/Resources', $package)),
-                    for: 'Rimba\\' . $studlyName . '\\Http\\UI\\Admin\\Resources',
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Admin/Resources', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Admin\\Resources',
                 )
                 ->discoverPages(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Admin/Pages', $package)),
-                    for: 'Rimba\\' . $studlyName . '\\Http\\UI\\Admin\\Pages',
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Admin/Pages', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Admin\\Pages',
                 )
                 ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Admin/Widgets', $package)),
-                    for: 'Rimba\\' . $studlyName . '\\Http\\UI\\Admin\\Widgets',
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Admin/Widgets', $package)),
+                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Admin\\Widgets',
                 );
         }
-
+        // dd($panel);
         return $panel
-            ->navigationGroups([
-                'Classroom',
-                'Report Card',
-                'Library',
-                'Shop',
-            ])
             ->pages([
                 Dashboard::class,
             ])

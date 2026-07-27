@@ -12,6 +12,7 @@ use ReflectionClass;
 class FoundationServiceProvider extends BitesServiceProvider
 {
     protected string $configFile = __DIR__ . '/../config/bites.php';
+    protected string $viewsPath = __DIR__ . '/../resources/views';
 
     protected function bootPackage(): void
     {

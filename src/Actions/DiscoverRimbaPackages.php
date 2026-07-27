@@ -11,9 +11,6 @@ class DiscoverRimbaPackages
 {
     protected string $cacheKey = 'rimba_packages';
 
-    /**
-     * Scan the vendor/rimba folder and return an array of folder names.
-     */
     public function execute(bool $forceRefresh = false): array
     {
         if ($forceRefresh) {
@@ -21,22 +18,66 @@ class DiscoverRimbaPackages
         }
 
         return Cache::rememberForever($this->cacheKey, function () {
-            $dir = base_path('vendor/rimba');
-            $folders = [];
+            $vendorPath = base_path('vendor/rimba');
 
-            if (! is_dir($dir)) {
-                return $folders;
+            if (! is_dir($vendorPath)) {
+                return [];
             }
 
-            $iterator = new FilesystemIterator($dir, FilesystemIterator::SKIP_DOTS);
+            $packages = [];
 
-            foreach ($iterator as $fileInfo) {
-                if ($fileInfo->isDir()) {
-                    $folders[] = $fileInfo->getFilename();
+            foreach (
+                new FilesystemIterator(
+                    $vendorPath,
+                    FilesystemIterator::SKIP_DOTS
+                ) as $package
+            ) {
+                if (! $package->isDir()) {
+                    continue;
                 }
+
+                $packageName = $package->getFilename();
+                $srcPath = $package->getPathname() . '/src';
+
+                $packages[$packageName] = $this->discoverProvider($srcPath);
             }
 
-            return $folders;
+            ksort($packages);
+
+            return $packages;
         });
+    }
+
+    protected function discoverProvider(string $srcPath): ?string
+    {
+        if (! is_dir($srcPath)) {
+            return null;
+        }
+
+        foreach (
+            new FilesystemIterator(
+                $srcPath,
+                FilesystemIterator::SKIP_DOTS
+            ) as $file
+        ) {
+            if (
+                $file->isFile() &&
+                str_ends_with(
+                    $file->getFilename(),
+                    'ServiceProvider.php'
+                )
+            ) {
+                return str_replace(
+                    'ServiceProvider',
+                    '',
+                    pathinfo(
+                        $file->getFilename(),
+                        PATHINFO_FILENAME
+                    )
+                );
+            }
+        }
+
+        return null;
     }
 }
