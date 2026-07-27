@@ -1,0 +1,50 @@
+{
+    "name": "rimba/foundation",
+    "description": "The Rimba Foundation provides the minimum set of capabilities required for an organization to operate on the platform.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BIT Ecosystem",
+            "email": "bit.ecosystem@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^8.4",
+        "filament/filament": "^5.0",
+        "laravel/framework": "^13.0",
+        "rimba/asas": "^1.0",
+        "rimba/bantu": "^1.0",
+        "rimba/boleh": "^1.0",
+        "rimba/citra": "^1.0",
+        "rimba/jalan": "^1.0",
+        "rimba/jalur": "^1.0",
+        "rimba/janji": "^1.0",
+        "rimba/jawat": "^1.0",
+        "rimba/jejak": "^1.0",
+        "rimba/kerja": "^1.0",
+        "rimba/laras": "^1.0",
+        "rimba/orang": "^1.0",
+        "rimba/pelan": "^1.0",
+        "rimba/pihak": "^1.0",
+        "rimba/siapa": "^1.0",
+        "rimba/sifat": "^1.0",
+        "rimba/tutur": "^1.0",
+        "rimba/versi": "^1.0",
+        "rimba/waktu": "^1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rimba\\Foundation\\FoundationServiceProvider"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+           "Rimba\\Foundation\\": "src/"
+        }
+    },
+    "minimum-stability": "alpha",
+    "prefer-stable": true
+}
