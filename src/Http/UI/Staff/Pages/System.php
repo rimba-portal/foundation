@@ -12,7 +12,7 @@ class System extends Page
 {
     protected static string|UnitEnum|null $navigationGroup = 'Accountables';
 
-    protected static string|BackedEnum|null $navigationIcon = 'rimba-asset-own';
+    // protected static string|BackedEnum|null $navigationIcon = 'rimba-asset-own';
 
     protected static ?string $navigationLabel = 'Assigned Assets';
 
