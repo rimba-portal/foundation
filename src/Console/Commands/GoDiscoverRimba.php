@@ -30,12 +30,12 @@ class GoDiscoverRimba extends Command
         }
 
         // Format data nicely for display
-        $rows = [];
-        foreach ($packages as $package => $namespace) {
-            $rows[] = [$package, $namespace];
-        }
+        // $rows = [];
+        // foreach ($packages as $package => $namespace) {
+        //     $rows[] = [$package, $namespace];
+        // }
 
-        $this->table(['Package String', 'Generated Namespace'], $rows);
+        // $this->table(['Package String', 'Generated Namespace'], $rows);
         $this->info('Rimba cache successfully rebuilt!');
 
         return Command::SUCCESS;
