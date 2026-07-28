@@ -27,6 +27,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Cache;
+use Rimba\Who\Http\UI\Auth\LoginWizard;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -35,7 +36,7 @@ class AdminPanelProvider extends PanelProvider
         // dd(config('bites'));
         $panel
             ->default()
-            ->login()
+            ->login(LoginWizard::class)
             ->id(config('bites.ui.panels.admin.0', 'admin'))
             ->path(config('bites.ui.panels.admin.1', 'admin'))
             ->colors(['primary' => config('bites.ui.panels.admin.2', Color::Green)])
