@@ -22,7 +22,7 @@ class System extends Page
 
     protected ?string $subheading = 'Asset/Equipment/Items issued to you or your support group.';
 
-    protected string $view = 'bites.pages.simple';
+    protected string $view = 'bites::pages.simple';
 
     protected function getHeaderWidgets(): array
     {
