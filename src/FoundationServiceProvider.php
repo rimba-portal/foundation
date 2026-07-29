@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace Rimba\Foundation;
 
-use Rimba\Base\Services\BitesServiceProvider;
 use Illuminate\Console\Command;
 use ReflectionClass;
-
+use Rimba\Base\Services\BitesServiceProvider;
 
 class FoundationServiceProvider extends BitesServiceProvider
 {
-    protected string $configFile = __DIR__ . '/../config/bites.php';
-    protected string $viewsPath = __DIR__ . '/../resources/views';
+    protected string $configFile = __DIR__.'/../config/bites.php';
+
+    protected string $viewsPath = __DIR__.'/../resources/views';
 
     protected function bootPackage(): void
     {
@@ -20,23 +20,26 @@ class FoundationServiceProvider extends BitesServiceProvider
             $this->registerCommandsFromDirectory();
         }
     }
+
     protected function registerPackage(): void
     {
         //
     }
+
     /**
      * Dynamically discover and boot all commands inside the package directory.
      */
     protected function registerCommandsFromDirectory()
     {
-        $commandDir = __DIR__ . '/Console/Commands';
+        $commandDir = __DIR__.'/Console/Commands';
         if (! is_dir($commandDir)) {
             return;
         }
+
         $commands = [];
-        foreach (glob($commandDir . '/*.php') as $file) {
+        foreach (glob($commandDir.'/*.php') as $file) {
             $className = basename($file, '.php');
-            $class = 'Rimba\\Foundation\\Console\\Commands\\' . $className;
+            $class = 'Rimba\\Foundation\\Console\\Commands\\'.$className;
             if (class_exists($class) && is_subclass_of($class, Command::class)) {
                 $reflection = new ReflectionClass($class);
                 if (! $reflection->isAbstract()) {
@@ -44,6 +47,7 @@ class FoundationServiceProvider extends BitesServiceProvider
                 }
             }
         }
+
         if ($commands !== []) {
             $this->commands($commands);
         }

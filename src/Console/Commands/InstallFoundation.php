@@ -16,7 +16,7 @@ class InstallFoundation extends Command
     {
         $isWindows = PHP_OS_FAMILY === 'Windows';
 
-        $this->info('Detecting OS: ' . ($isWindows ? 'Windows' : 'Linux'));
+        $this->info('Detecting OS: '.($isWindows ? 'Windows' : 'Linux'));
 
         $this->info('Running Composer...');
         passthru('composer install');
@@ -47,7 +47,7 @@ class InstallFoundation extends Command
                 ? 'nginx'
                 : 'apache';
 
-            passthru("sudo chown -R \$USER:$webUser .");
+            passthru(sprintf('sudo chown -R $USER:%s .', $webUser));
             passthru('find . -type d -exec chmod 755 {} \;');
             passthru('find . -type f -exec chmod 644 {} \;');
             passthru('sudo chmod -R 775 storage bootstrap/cache database');
@@ -72,7 +72,7 @@ class InstallFoundation extends Command
         ]);
 
         $this->call('migrate:fresh', [
-            '--seed'  => true,
+            '--seed' => true,
             '--force' => true,
         ]);
 

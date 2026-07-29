@@ -12,6 +12,6 @@ return [
             'staff' => ['staff', 'staff', '#09829f', 'ATM Staff Intranet', 'filament.staff.pages.dashboard'],
         ],
     ],
-    'unit_roles' => ['owner','member'],
-    'team_roles' => ['captain','scout', 'player', 'quartermaster', 'tactician', 'coach'],
+    'unit_roles' => ['owner', 'member'],
+    'team_roles' => ['captain', 'scout', 'player', 'quartermaster', 'tactician', 'coach'],
 ];

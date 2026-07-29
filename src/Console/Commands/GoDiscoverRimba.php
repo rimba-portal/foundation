@@ -23,7 +23,7 @@ class GoDiscoverRimba extends Command
         // Run the action with forceRefresh set to true
         $packages = $discoverer->execute(forceRefresh: true);
 
-        if (empty($packages)) {
+        if ($packages === []) {
             $this->warn('No packages were found inside vendor/rimba.');
 
             return Command::SUCCESS;

@@ -17,7 +17,7 @@ class DiscoverRimbaPackages
             Cache::forget($this->cacheKey);
         }
 
-        return Cache::rememberForever($this->cacheKey, function () {
+        return Cache::rememberForever($this->cacheKey, function (): array {
             $vendorPath = base_path('vendor/rimba');
 
             if (! is_dir($vendorPath)) {
@@ -37,7 +37,7 @@ class DiscoverRimbaPackages
                 }
 
                 $packageName = $package->getFilename();
-                $srcPath = $package->getPathname() . '/src';
+                $srcPath = $package->getPathname().'/src';
 
                 $packages[$packageName] = $this->discoverProvider($srcPath);
             }

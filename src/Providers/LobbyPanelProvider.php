@@ -5,9 +5,6 @@ declare(strict_types=1);
 namespace Rimba\Foundation\Providers;
 
 use Filament\Actions\Action;
-use Filament\Auth\Pages\EditProfile;
-use Filament\Auth\Pages\PasswordReset\RequestPasswordReset;
-use Filament\Auth\Pages\Register;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -16,8 +13,6 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Support\Facades\FilamentIcon;
-use Filament\View\PanelsIconAlias;
 use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
@@ -25,8 +20,8 @@ use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\UI\Auth\LoginWizard;
 
 class LobbyPanelProvider extends PanelProvider
@@ -41,7 +36,7 @@ class LobbyPanelProvider extends PanelProvider
             ->path(config('bites.ui.panels.lobby.1', 'lobby'))
             ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Green)])
             ->brandName(config('bites.ui.panels.lobby.3', 'Lobbyistration'))
-            ->homeUrl(fn(): string => route(config('bites.ui.panels.lobby.4', 'filament.lobby.pages.dashboard')))
+            ->homeUrl(fn (): string => route(config('bites.ui.panels.lobby.4', 'filament.lobby.pages.dashboard')))
 
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Lobby/Resources'), for: 'App\\Http\\UI\\Lobby\\Resources')
@@ -54,17 +49,18 @@ class LobbyPanelProvider extends PanelProvider
             $panel
                 ->discoverResources(
                     in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Resources', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Resources',
+                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Lobby\\Resources',
                 )
                 ->discoverPages(
                     in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Pages', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Pages',
+                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Lobby\\Pages',
                 )
                 ->discoverWidgets(
                     in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Widgets', $package)),
-                    for: 'Rimba\\' . $namespace . '\\Http\\UI\\Lobby\\Widgets',
+                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Lobby\\Widgets',
                 );
         }
+
         return $panel
             ->navigationGroups([
                 'Profile',
