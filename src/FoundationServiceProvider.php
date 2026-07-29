@@ -7,6 +7,7 @@ namespace Rimba\Foundation;
 use Illuminate\Console\Command;
 use ReflectionClass;
 use Rimba\Base\Services\BitesServiceProvider;
+use Rimba\Foundation\Actions\DiscoverRimbaPackages;
 
 class FoundationServiceProvider extends BitesServiceProvider
 {
@@ -19,6 +20,8 @@ class FoundationServiceProvider extends BitesServiceProvider
         if ($this->app->runningInConsole()) {
             $this->registerCommandsFromDirectory();
         }
+
+        app(DiscoverRimbaPackages::class)->cached();
     }
 
     protected function registerPackage(): void
