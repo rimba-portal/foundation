@@ -39,7 +39,8 @@
                 "Rimba\\Foundation\\FoundationServiceProvider",
                 "Rimba\\Foundation\\Providers\\AdminPanelProvider",
                 "Rimba\\Foundation\\Providers\\LobbyPanelProvider",
-                "Rimba\\Foundation\\Providers\\StaffPanelProvider"
+                "Rimba\\Foundation\\Providers\\StaffPanelProvider",
+                "Rimba\\Foundation\\Providers\\TeamPanelProvider"
             ]
         }
     },

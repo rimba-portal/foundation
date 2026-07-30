@@ -24,48 +24,48 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\UI\Auth\LoginWizard;
 
-class StaffPanelProvider extends PanelProvider
+class TeamPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        // dd(config('bites'));
         $panel
             ->default()
             ->login(LoginWizard::class)
-            ->id(config('bites.ui.panels.staff.0', 'staff'))
-            ->path(config('bites.ui.panels.staff.1', 'staff'))
-            ->colors(['primary' => config('bites.ui.panels.staff.2', Color::Green)])
-            ->brandName(config('bites.ui.panels.staff.3', 'Staff Portal'))
-            ->homeUrl(fn (): string => route(config('bites.ui.panels.staff.4', 'filament.staff.pages.dashboard')))
+            ->id(config('bites.ui.panels.team.0', 'team'))
+            ->path(config('bites.ui.panels.team.1', 'team'))
+            ->colors(['primary' => config('bites.ui.panels.team.2', Color::Green)])
+            ->brandName(config('bites.ui.panels.team.3', 'Team'))
+            ->homeUrl(fn (): string => route(config('bites.ui.panels.team.4', 'filament.team.pages.dashboard')))
 
             // Discover for UI
-            ->discoverResources(in: app_path('Http/UI/Staff/Resources'), for: 'App\\Http\\UI\\Staff\\Resources')
-            ->discoverPages(in: app_path('Http/UI/Staff/Pages'), for: 'App\\Http\\UI\\Staff\\Pages')
-            ->discoverWidgets(in: app_path('Http/UI/Staff/Widgets'), for: 'App\\Http\\UI\\Staff\\Widgets');
+            ->discoverResources(in: app_path('Http/UI/Team/Resources'), for: 'App\\Http\\UI\\Team\\Resources')
+            ->discoverPages(in: app_path('Http/UI/Team/Pages'), for: 'App\Http\UI\Team\Pages')
+            ->discoverWidgets(in: app_path('Http/UI/Team/Widgets'), for: 'App\Http\UI\Team\Widgets');
 
         $packages = Cache::get('rimba_packages', []);
 
         foreach ($packages as $package => $namespace) {
             $panel
                 ->discoverResources(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Resources', $package)),
-                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Staff\\Resources',
+                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Team/Resources', $package)),
+                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Team\\Resources',
                 )
                 ->discoverPages(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Pages', $package)),
-                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Staff\\Pages',
+                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Team/Pages', $package)),
+                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Team\\Pages',
                 )
                 ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Widgets', $package)),
-                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Staff\\Widgets',
+                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Team/Widgets', $package)),
+                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Team\\Widgets',
                 );
         }
 
         return $panel
             ->navigationGroups([
-                'Classroom',
-                'Report Card',
-                'Library',
-                'Shop',
+                'Profile',
+                'Onboarding',
+                'Policy',
             ])
             ->pages([
                 Dashboard::class,

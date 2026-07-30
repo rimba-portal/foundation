@@ -10,6 +10,7 @@ return [
             'admin' => ['admin', 'admin', '#7f174b', 'Administrator Portal', 'filament.staff.pages.dashboard'],
             'lobby' => ['lobby', 'lobby', '#069800', 'ATM Lobby', 'filament.lobby.pages.dashboard'],
             'staff' => ['staff', 'staff', '#09829f', 'ATM Staff Intranet', 'filament.staff.pages.dashboard'],
+            'team' => ['team', 'team', '#7f174b', 'Team Panel', 'filament.staff.pages.dashboard'],
         ],
     ],
     'unit_roles' => ['owner', 'member'],

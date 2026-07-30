@@ -35,7 +35,7 @@ class LobbyPanelProvider extends PanelProvider
             ->id(config('bites.ui.panels.lobby.0', 'lobby'))
             ->path(config('bites.ui.panels.lobby.1', 'lobby'))
             ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Green)])
-            ->brandName(config('bites.ui.panels.lobby.3', 'Lobbyistration'))
+            ->brandName(config('bites.ui.panels.lobby.3', 'Lobby'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.lobby.4', 'filament.lobby.pages.dashboard')))
 
             // Discover for UI
