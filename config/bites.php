@@ -7,10 +7,10 @@ return [
     'ui' => [
         'panels' => [
             // panel_id, path, color, brandName, homeUrl
-            'admin' => ['admin', 'admin', '#7f174b', 'Administrator Portal', 'filament.staff.pages.dashboard'],
-            'lobby' => ['lobby', 'lobby', '#069800', 'ATM Lobby', 'filament.lobby.pages.dashboard'],
-            'staff' => ['staff', 'staff', '#09829f', 'ATM Staff Intranet', 'filament.staff.pages.dashboard'],
-            'team' => ['team', 'team', '#7f174b', 'Team Panel', 'filament.staff.pages.dashboard'],
+            'admin' => ['admin', 'admin', '#7F174C', 'Administrator Portal', 'filament.staff.pages.dashboard'],
+            'lobby' => ['lobby', 'lobby', '#0F4C8D', 'ATM Lobby', 'filament.lobby.pages.dashboard'],
+            'staff' => ['staff', 'staff', '#0A83A0', 'ATM Staff Intranet', 'filament.staff.pages.dashboard'],
+            'team' => ['team', 'team', '#DA8E27', 'Team Panel', 'filament.staff.pages.dashboard'],
         ],
     ],
     'unit_roles' => ['owner', 'member'],

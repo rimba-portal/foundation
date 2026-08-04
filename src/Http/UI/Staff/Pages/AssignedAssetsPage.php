@@ -8,11 +8,11 @@ use BackedEnum;
 use Filament\Pages\Page;
 use UnitEnum;
 
-class System extends Page
+class AssignedAssetsPage extends Page
 {
     protected static string|UnitEnum|null $navigationGroup = 'Accountables';
 
-    // protected static string|BackedEnum|null $navigationIcon = 'bites-asset-own';
+    protected static string|BackedEnum|null $navigationIcon = 'rimba-asset-own';
 
     protected static ?string $navigationLabel = 'Assigned Assets';
 

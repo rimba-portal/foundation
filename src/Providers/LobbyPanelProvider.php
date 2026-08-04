@@ -34,7 +34,7 @@ class LobbyPanelProvider extends PanelProvider
             ->login(LoginWizard::class)
             ->id(config('bites.ui.panels.lobby.0', 'lobby'))
             ->path(config('bites.ui.panels.lobby.1', 'lobby'))
-            ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Green)])
+            ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Blue)])
             ->brandName(config('bites.ui.panels.lobby.3', 'Lobby'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.lobby.4', 'filament.lobby.pages.dashboard')))
 
@@ -64,8 +64,9 @@ class LobbyPanelProvider extends PanelProvider
         return $panel
             ->navigationGroups([
                 'Profile',
-                'Onboarding',
+                'Induction',
                 'Policy',
+                'Emergency',
             ])
             ->pages([
                 Dashboard::class,

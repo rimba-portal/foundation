@@ -33,7 +33,7 @@ class StaffPanelProvider extends PanelProvider
             ->login(LoginWizard::class)
             ->id(config('bites.ui.panels.staff.0', 'staff'))
             ->path(config('bites.ui.panels.staff.1', 'staff'))
-            ->colors(['primary' => config('bites.ui.panels.staff.2', Color::Green)])
+            ->colors(['primary' => config('bites.ui.panels.staff.2', Color::Cyan)])
             ->brandName(config('bites.ui.panels.staff.3', 'Staff Portal'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.staff.4', 'filament.staff.pages.dashboard')))
 
@@ -62,10 +62,14 @@ class StaffPanelProvider extends PanelProvider
 
         return $panel
             ->navigationGroups([
-                'Classroom',
-                'Report Card',
-                'Library',
-                'Shop',
+                'Todo',
+                'Accountables',
+                'Catalog',
+                'Knowledge',
+                'Learning',
+                'Emergency',
+                'Resources',
+                'Systems',
             ])
             ->pages([
                 Dashboard::class,

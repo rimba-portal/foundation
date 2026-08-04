@@ -34,7 +34,7 @@ class TeamPanelProvider extends PanelProvider
             ->login(LoginWizard::class)
             ->id(config('bites.ui.panels.team.0', 'team'))
             ->path(config('bites.ui.panels.team.1', 'team'))
-            ->colors(['primary' => config('bites.ui.panels.team.2', Color::Green)])
+            ->colors(['primary' => config('bites.ui.panels.team.2', Color::Stone)])
             ->brandName(config('bites.ui.panels.team.3', 'Team'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.team.4', 'filament.team.pages.dashboard')))
 
@@ -63,9 +63,11 @@ class TeamPanelProvider extends PanelProvider
 
         return $panel
             ->navigationGroups([
-                'Profile',
-                'Onboarding',
-                'Policy',
+                'Workforce',
+                'Operations',
+                'Request Flow',
+                'Knowledge',
+                'Settings',
             ])
             ->pages([
                 Dashboard::class,

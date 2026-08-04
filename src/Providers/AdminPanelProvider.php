@@ -34,7 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->login(LoginWizard::class)
             ->id(config('bites.ui.panels.admin.0', 'admin'))
             ->path(config('bites.ui.panels.admin.1', 'admin'))
-            ->colors(['primary' => config('bites.ui.panels.admin.2', Color::Green)])
+            ->colors(['primary' => config('bites.ui.panels.admin.2', Color::Rose)])
             ->brandName(config('bites.ui.panels.admin.3', 'Administration'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.admin.4', 'filament.admin.pages.dashboard')))
 
