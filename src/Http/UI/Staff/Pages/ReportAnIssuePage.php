@@ -12,7 +12,7 @@ class ReportAnIssuePage extends Page
 {
     protected static string|UnitEnum|null $navigationGroup = 'Emergency';
 
-    protected static string|BackedEnum|null $navigationIcon = 'rimba-s-urgent';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-s-urgent';
 
     protected static ?string $navigationLabel = 'Report an issue';
 

@@ -12,7 +12,7 @@ class RequestForSomethingPage extends Page
 {
     protected static string|UnitEnum|null $navigationGroup = 'Catalog';
 
-    protected static string|BackedEnum|null $navigationIcon = 'rimba-w-request';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-w-request';
 
     protected static ?string $navigationLabel = 'Request for something';
 

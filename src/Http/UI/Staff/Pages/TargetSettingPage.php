@@ -12,7 +12,7 @@ class TargetSettingPage extends Page
 {
     protected static string|UnitEnum|null $navigationGroup = 'ToDo';
 
-    protected static string|BackedEnum|null $navigationIcon = 'rimba-s-target';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-s-target';
 
     protected static ?string $navigationLabel = 'Target Setting';
 

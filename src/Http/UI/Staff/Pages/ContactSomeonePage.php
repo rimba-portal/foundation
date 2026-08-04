@@ -20,7 +20,7 @@ class ContactSomeonePage extends Page implements HasSchemas
 
     protected static string|UnitEnum|null $navigationGroup = 'Emergency';
 
-    protected static string|BackedEnum|null $navigationIcon = 'rimba-s-phone-call';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-s-phone-call';
 
     protected static ?string $navigationLabel = 'Contact someone';
 

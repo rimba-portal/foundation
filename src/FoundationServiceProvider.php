@@ -12,6 +12,8 @@ use Rimba\Foundation\Actions\DiscoverRimbaPackages;
 class FoundationServiceProvider extends BitesServiceProvider
 {
     protected string $configFile = __DIR__.'/../config/bites.php';
+    
+    protected string $iconsPath = __DIR__.'/../resources/svg';
 
     protected string $viewsPath = __DIR__.'/../resources/views';
 

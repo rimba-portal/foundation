@@ -29,7 +29,7 @@ class ProfilePage extends Page implements HasActions, HasSchemas
 
     protected static string|UnitEnum|null $navigationGroup = 'Accountables';
 
-    protected static string|BackedEnum|null $navigationIcon = 'rimba-id-staff';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-id-staff';
 
     protected static ?string $navigationLabel = 'Profile';
 

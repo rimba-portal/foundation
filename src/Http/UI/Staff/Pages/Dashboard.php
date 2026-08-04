@@ -13,11 +13,11 @@ use Rimba\Work\Http\UI\Widgets\TaskStatsWidget;
 use Rimba\Work\Http\UI\Widgets\UnassignedTasksByRoleWidget;
 use UnitEnum;
 
-class TaskPage extends BaseDashboard
+class Dashboard extends BaseDashboard
 {
     protected static string|UnitEnum|null $navigationGroup = 'ToDo';
 
-    protected static string|BackedEnum|null $navigationIcon = 'rimba-s-task';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-s-task';
 
     protected static ?string $navigationLabel = 'Task';
 
