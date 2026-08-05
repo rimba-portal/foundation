@@ -62,7 +62,7 @@ class StaffPanelProvider extends PanelProvider
 
         return $panel
             ->navigationGroups([
-                'Todo',
+                'ToDo',
                 'Accountables',
                 'Catalog',
                 'Knowledge',
