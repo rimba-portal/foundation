@@ -72,7 +72,7 @@ class StaffPanelProvider extends PanelProvider
                 'Systems',
             ])
             ->pages([
-                Dashboard::class,
+                // Dashboard::class,
             ])
             ->widgets([
                 AccountWidget::class,
