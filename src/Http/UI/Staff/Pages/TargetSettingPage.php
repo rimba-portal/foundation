@@ -10,7 +10,7 @@ use UnitEnum;
 
 class TargetSettingPage extends Page
 {
-    protected static string|UnitEnum|null $navigationGroup = 'ToDo';
+    protected static string|UnitEnum|null $navigationGroup = 'To Do';
 
     protected static string|BackedEnum|null $navigationIcon = 'bites-s-target';
 
