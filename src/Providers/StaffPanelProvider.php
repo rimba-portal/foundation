@@ -22,7 +22,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Rimba\Who\Http\UI\Auth\LoginWizard;
+use Rimba\Who\Http\UI\Auth\Login;
 
 class StaffPanelProvider extends PanelProvider
 {
@@ -30,7 +30,7 @@ class StaffPanelProvider extends PanelProvider
     {
         $panel
             ->default()
-            ->login(LoginWizard::class)
+            ->login(Login::class)
             ->id(config('bites.ui.panels.staff.0', 'staff'))
             ->path(config('bites.ui.panels.staff.1', 'staff'))
             ->colors(['primary' => config('bites.ui.panels.staff.2', Color::Cyan)])
