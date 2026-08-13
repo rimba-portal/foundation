@@ -1,8 +1,5 @@
 <x-filament-panels::page>
-
-   <form wire:submit="save">
-        {{ $this->form }}
-    </form>
+    <form wire:submit="save">{{ $this->form }}</form>
     <x-filament-actions::modals />
-       {{-- Page content --}}
+    {{-- Page content --}}
 </x-filament-panels::page>
