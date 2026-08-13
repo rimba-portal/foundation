@@ -13,7 +13,6 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -22,7 +21,6 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\UI\Auth\Login;
-use Rimba\Who\Http\UI\Staff\Widgets\RolesWidget;
 
 class StaffPanelProvider extends PanelProvider
 {
@@ -75,8 +73,6 @@ class StaffPanelProvider extends PanelProvider
                 // Dashboard::class,
             ])
             ->widgets([
-                AccountWidget::class,
-                RolesWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
