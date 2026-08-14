@@ -8,8 +8,6 @@ use App\Http\UI\Staff\Widgets;
 use BackedEnum;
 use Filament\Pages\Dashboard as BaseDashboard;
 use Override;
-use Rimba\Who\Http\UI\Staff\Widgets\RolesWidget;
-use Rimba\Who\Http\UI\Staff\Widgets\StaffInfoWidget;
 use Rimba\Work\Http\UI\Widgets\MyPendingTasksWidget;
 use Rimba\Work\Http\UI\Widgets\TaskStatsWidget;
 use Rimba\Work\Http\UI\Widgets\UnassignedTasksByRoleWidget;
@@ -39,8 +37,6 @@ class Dashboard extends BaseDashboard
     {
         // Only these widgets appear on the Dashboard
         return [
-            StaffInfoWidget::class,
-            RolesWidget::class,
             UnassignedTasksByRoleWidget::class,
             MyPendingTasksWidget::class,
             TaskStatsWidget::class,

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Rimba\Foundation\Http\UI\Staff\Pages;
 
-use App\Filament\Staff\Widgets;
 use App\Models\User;
 use BackedEnum;
 use Filament\Actions\Action;
@@ -20,6 +19,8 @@ use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Illuminate\Support\Facades\Auth;
+use Rimba\Who\Http\UI\Staff\Widgets\RolesWidget;
+use Rimba\Who\Http\UI\Staff\Widgets\StaffInfoWidget;
 use UnitEnum;
 
 class ProfilePage extends Page implements HasActions, HasSchemas
@@ -49,8 +50,8 @@ class ProfilePage extends Page implements HasActions, HasSchemas
     protected function getHeaderWidgets(): array
     {
         return [
-            // Widgets\StaffInfo::class,
-            // Widgets\RolesWidgetMini::class,
+            StaffInfoWidget::class,
+            RolesWidget::class,
         ];
     }
 
