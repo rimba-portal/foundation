@@ -57,4 +57,9 @@ class FoundationServiceProvider extends BitesServiceProvider
             $this->commands($commands);
         }
     }
+
+    public static function jsonPath(string $store): string
+    {
+        return __DIR__."/../resources/json/{$store}.json";
+    }
 }

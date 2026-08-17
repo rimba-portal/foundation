@@ -1,0 +1,12 @@
+[
+    {
+        "name": "People",
+        "description": "People Module",
+        "url": "/staff/people"
+    },
+    {
+        "name": "Workflow",
+        "description": "Workflow Module",
+        "url": "/staff/workflows"
+    }
+]
