@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rimba\Foundation\Http\UI\Staff\Pages;
 
 use BackedEnum;
+use Filament\Support\Icons\Heroicon;
 use Rimba\Base\Pages\JsonTablePage;
 use Rimba\Foundation\FoundationServiceProvider;
 use UnitEnum;
