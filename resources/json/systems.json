@@ -10,5 +10,18 @@
         "name": "Workflow",
         "description": "Workflow Module",
         "url": "/staff/workflows"
+    },
+    {
+        "key": "learning",
+        "name": "Learning",
+        "description": "Learning and training management",
+        "url": "/staff/learning"
+    },
+    {
+        "key": "documents",
+        "name": "Documents",
+        "description": "Controlled document management",
+        "url": "/staff/documents"
     }
+
 ]
