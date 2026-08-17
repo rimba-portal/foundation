@@ -1,10 +1,12 @@
 [
     {
+        "key": "people",
         "name": "People",
         "description": "People Module",
         "url": "/staff/people"
     },
     {
+        "key": "workflow",
         "name": "Workflow",
         "description": "Workflow Module",
         "url": "/staff/workflows"

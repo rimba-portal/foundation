@@ -8,9 +8,9 @@ use BackedEnum;
 use Rimba\Base\Resources\JsonResource;
 use UnitEnum;
 
-class SystemResource extends JsonResource
+class UnitResource extends JsonResource
 {
-    protected static string $store = 'resources';
+    protected static string $store = 'units';
 
     protected static string|UnitEnum|null $navigationGroup = 'Resources';
 
