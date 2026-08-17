@@ -13,15 +13,13 @@ class SystemsPage extends JsonTablePage
 {
     protected static string $store = 'systems';
 
-    protected static ?string $slug = 'systems';
+    protected static ?string $slug = 'systems.apps';
 
     protected static ?string $title = 'Application Systems';
 
     protected static string|UnitEnum|null $navigationGroup = 'Systems';
 
-    protected static string|BackedEnum|null $navigationIcon = 'bites-w-request';
-
-    protected static ?string $navigationLabel = 'Request for something';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-softwares';
 
     protected ?string $subheading = 'Request for support, service, item, asset, equipment, etc. through workflow system.';
 

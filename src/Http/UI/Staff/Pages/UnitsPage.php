@@ -13,17 +13,17 @@ class UnitsPage extends JsonTablePage
 {
     protected static string $store = 'units';
 
-    protected static ?string $slug = 'resources';
+    protected static ?string $slug = 'resources.units';
 
-    protected static ?string $title = 'Resources';
+    protected static ?string $title = 'Units';
+
+    protected static string|UnitEnum|null $navigationGroup = 'Resources';
+
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-wrench-screwdriver';
+
+    protected ?string $subheading = 'Organization Units in the organization';
 
     protected static ?string $navigationLabel = 'Units';
-
-    protected static string|BackedEnum|null $navigationIcon =
-        'heroicon-o-book-open';
-
-    protected static string|UnitEnum|null $navigationGroup =
-        'Resources';
 
     protected static ?int $navigationSort = 10;
 
