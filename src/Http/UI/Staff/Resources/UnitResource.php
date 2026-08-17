@@ -6,6 +6,7 @@ namespace Rimba\Foundation\Http\UI\Staff\Resources;
 
 use BackedEnum;
 use Rimba\Base\Resources\JsonResource;
+use Rimba\Foundation\Http\UI\Staff\Resources\Pages\ManageUnits;
 use UnitEnum;
 
 class UnitResource extends JsonResource
@@ -25,4 +26,11 @@ class UnitResource extends JsonResource
     protected ?string $subheading = 'Asset/Equipment/Items issued to you or your support group.';
 
     protected static ?string $modelLabel = 'Resourceus';
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => ManageUnits::route('/'),
+        ];
+    }
 }
