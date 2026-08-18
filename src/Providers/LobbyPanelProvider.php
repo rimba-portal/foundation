@@ -23,6 +23,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\UI\Auth\Login;
+use Rimba\Who\Http\UI\Auth\Register;
 
 class LobbyPanelProvider extends PanelProvider
 {
@@ -32,12 +33,12 @@ class LobbyPanelProvider extends PanelProvider
         $panel
             ->default()
             ->login(Login::class)
+            ->registration(Register::class)
             ->id(config('bites.ui.panels.lobby.0', 'lobby'))
             ->path(config('bites.ui.panels.lobby.1', 'lobby'))
             ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Blue)])
             ->brandName(config('bites.ui.panels.lobby.3', 'Lobby'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.lobby.4', 'filament.lobby.pages.dashboard')))
-            ->registration()
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Lobby/Resources'), for: 'App\\Http\\UI\\Lobby\\Resources')
             ->discoverPages(in: app_path('Http/UI/Lobby/Pages'), for: 'App\Http\UI\Lobby\Pages')
