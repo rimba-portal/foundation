@@ -22,6 +22,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\LoginWizard;
 
 class AdminPanelProvider extends PanelProvider
@@ -83,6 +84,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
+                EnsurePanelAccess::class.'admin',
             ]);
     }
 }
