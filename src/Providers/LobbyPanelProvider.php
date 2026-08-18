@@ -56,10 +56,6 @@ class LobbyPanelProvider extends PanelProvider
                 ->discoverPages(
                     in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Pages', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Lobby\\Pages',
-                )
-                ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Widgets', $package)),
-                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Lobby\\Widgets',
                 );
         }
 
@@ -90,7 +86,7 @@ class LobbyPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-                EnsurePanelAccess::class.'lobby',
+                EnsurePanelAccess::class.':lobby',
             ]);
     }
 }

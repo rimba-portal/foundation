@@ -23,7 +23,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
-use Rimba\Who\Http\UI\Auth\LoginWizard;
+use Rimba\Who\Http\UI\Auth\Login;
 
 class TeamPanelProvider extends PanelProvider
 {
@@ -32,7 +32,7 @@ class TeamPanelProvider extends PanelProvider
         // dd(config('bites'));
         $panel
             ->default()
-            ->login(LoginWizard::class)
+            ->login(Login::class)
             ->id(config('bites.ui.panels.team.0', 'team'))
             ->path(config('bites.ui.panels.team.1', 'team'))
             ->colors(['primary' => config('bites.ui.panels.team.2', Color::Stone)])
@@ -55,10 +55,6 @@ class TeamPanelProvider extends PanelProvider
                 ->discoverPages(
                     in: base_path(sprintf('vendor/rimba/%s/Http/UI/Team/Pages', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Team\\Pages',
-                )
-                ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Team/Widgets', $package)),
-                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Team\\Widgets',
                 );
         }
 
@@ -90,7 +86,7 @@ class TeamPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-                EnsurePanelAccess::class.'team',
+                EnsurePanelAccess::class.':team',
             ]);
     }
 }

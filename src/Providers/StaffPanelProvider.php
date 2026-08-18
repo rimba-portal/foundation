@@ -52,11 +52,11 @@ class StaffPanelProvider extends PanelProvider
                 ->discoverPages(
                     in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Pages', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Staff\\Pages',
-                )
-                ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Widgets', $package)),
-                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Staff\\Widgets',
                 );
+            // ->discoverWidgets(
+            //     in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Staff/Widgets', $package)),
+            //     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Staff\\Widgets',
+            // );
         }
 
         return $panel
@@ -88,7 +88,7 @@ class StaffPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-                EnsurePanelAccess::class.'staff',
+                EnsurePanelAccess::class.':staff',
             ]);
     }
 }

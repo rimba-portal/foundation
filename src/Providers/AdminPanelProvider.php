@@ -23,7 +23,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
-use Rimba\Who\Http\UI\Auth\LoginWizard;
+use Rimba\Who\Http\UI\Auth\Login;
 
 class AdminPanelProvider extends PanelProvider
 {
@@ -32,7 +32,7 @@ class AdminPanelProvider extends PanelProvider
         // dd(config('bites'));
         $panel
             ->default()
-            ->login(LoginWizard::class)
+            ->login(Login::class)
             ->id(config('bites.ui.panels.admin.0', 'admin'))
             ->path(config('bites.ui.panels.admin.1', 'admin'))
             ->colors(['primary' => config('bites.ui.panels.admin.2', Color::Rose)])
@@ -55,10 +55,6 @@ class AdminPanelProvider extends PanelProvider
                 ->discoverPages(
                     in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Admin/Pages', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Admin\\Pages',
-                )
-                ->discoverWidgets(
-                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Admin/Widgets', $package)),
-                    for: 'Rimba\\'.$namespace.'\\Http\\UI\\Admin\\Widgets',
                 );
         }
 
@@ -84,7 +80,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-                EnsurePanelAccess::class.'admin',
+                EnsurePanelAccess::class.':admin',
             ]);
     }
 }
