@@ -25,6 +25,8 @@ use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
 use Rimba\Who\Http\UI\Auth\Register;
+use Rimba\Who\Http\UI\Auth\RequestPasswordReset;
+use Rimba\Who\Http\UI\Auth\ResetPassword;
 
 class LobbyPanelProvider extends PanelProvider
 {
@@ -35,6 +37,10 @@ class LobbyPanelProvider extends PanelProvider
             ->default()
             ->login(Login::class)
             ->registration(Register::class)
+            ->passwordReset(
+                requestAction: RequestPasswordReset::class,
+                resetAction: ResetPassword::class,
+            )
             ->id(config('bites.ui.panels.lobby.0', 'lobby'))
             ->path(config('bites.ui.panels.lobby.1', 'lobby'))
             ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Blue)])

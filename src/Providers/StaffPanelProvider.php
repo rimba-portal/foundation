@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
+use Rimba\Who\Http\UI\Auth\Register;
+use Rimba\Who\Http\UI\Auth\RequestPasswordReset;
+use Rimba\Who\Http\UI\Auth\ResetPassword;
 
 class StaffPanelProvider extends PanelProvider
 {
@@ -30,6 +33,11 @@ class StaffPanelProvider extends PanelProvider
         $panel
             ->default()
             ->login(Login::class)
+            ->registration(Register::class)
+            ->passwordReset(
+                requestAction: RequestPasswordReset::class,
+                resetAction: ResetPassword::class,
+            )
             ->id(config('bites.ui.panels.staff.0', 'staff'))
             ->path(config('bites.ui.panels.staff.1', 'staff'))
             ->colors(['primary' => config('bites.ui.panels.staff.2', Color::Cyan)])
@@ -73,8 +81,7 @@ class StaffPanelProvider extends PanelProvider
             ->pages([
                 // Dashboard::class,
             ])
-            ->widgets([
-            ])
+            ->widgets([])
             ->middleware([
                 EncryptCookies::class,
                 AddQueuedCookiesToResponse::class,
