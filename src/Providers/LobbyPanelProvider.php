@@ -27,6 +27,8 @@ use Rimba\Who\Http\UI\Auth\Login;
 use Rimba\Who\Http\UI\Auth\Register;
 use Rimba\Who\Http\UI\Auth\RequestPasswordReset;
 use Rimba\Who\Http\UI\Auth\ResetPassword;
+use Rimba\Who\Http\UI\Auth\ResetPassword as AuthResetPassword;
+use Rimba\Who\Http\UI\Auth\ResetPassword as UIAuthResetPassword;
 
 class LobbyPanelProvider extends PanelProvider
 {
