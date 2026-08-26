@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Rimba\Foundation\Providers;
 
 use Filament\Actions\Action;
+use Filament\Auth\MultiFactor\App\AppAuthentication;
 use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
@@ -17,8 +18,8 @@ use Filament\Widgets\AccountWidget;
 use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
-use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
-use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery; // Import the Action class
+use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -41,6 +42,9 @@ class LobbyPanelProvider extends PanelProvider
                 requestAction: RequestPasswordReset::class,
                 resetAction: ResetPassword::class,
             )
+            ->multiFactorAuthentication([
+                AppAuthentication::make(),
+            ])
             ->id(config('bites.ui.panels.lobby.0', 'lobby'))
             ->path(config('bites.ui.panels.lobby.1', 'lobby'))
             ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Blue)])
