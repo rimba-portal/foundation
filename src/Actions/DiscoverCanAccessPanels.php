@@ -54,7 +54,7 @@ class DiscoverCanAccessPanels
                     ->label($this->labels[$panelId] ?? ucfirst($panelId))
                     ->iconButton()
                     ->color($currentPanel === $panelId ? 'primary' : 'gray')
-                    ->icon("p-{$panelId}")
+                    ->icon("bites-p-{$panelId}")
                     ->url($url);
             })
             ->filter()
