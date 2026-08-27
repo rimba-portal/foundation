@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Rimba\Foundation;
 
+use Filament\Support\Facades\FilamentView;
+use Filament\View\PanelsRenderHook;
 use Illuminate\Console\Command;
+use Illuminate\Contracts\View\Factory;
 use ReflectionClass;
 use Rimba\Base\Services\BitesServiceProvider;
 use Rimba\Foundation\Actions\DiscoverRimbaPackages;
@@ -23,6 +26,10 @@ class FoundationServiceProvider extends BitesServiceProvider
             $this->registerCommandsFromDirectory();
         }
 
+        FilamentView::registerRenderHook(
+            PanelsRenderHook::GLOBAL_SEARCH_BEFORE,
+            fn (): Factory|\Illuminate\Contracts\View\View => view('bites::panel-switcher')
+        );
         app(DiscoverRimbaPackages::class)->cached();
     }
 
