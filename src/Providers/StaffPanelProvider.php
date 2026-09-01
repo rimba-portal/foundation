@@ -20,6 +20,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Rimba\Who\Http\Middleware\EnsureFaceVerification;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
 use Rimba\Who\Http\UI\Auth\Register;
@@ -92,6 +93,7 @@ class StaffPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
+                EnsureFaceVerification::class,
             ])
             ->authMiddleware([
                 Authenticate::class,
