@@ -50,11 +50,11 @@ class TeamPanelProvider extends PanelProvider
         foreach ($packages as $package => $namespace) {
             $panel
                 ->discoverResources(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Team/Resources', $package)),
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Team/Resources', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Team\\Resources',
                 )
                 ->discoverPages(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Team/Pages', $package)),
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Team/Pages', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Team\\Pages',
                 );
         }

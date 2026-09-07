@@ -34,7 +34,8 @@ class LobbyPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
-        // dd(config('bites'));
+        //    dd(Cache::get('rimba_packages'));
+
         $panel
             ->default()
             ->login(Login::class)
@@ -61,11 +62,11 @@ class LobbyPanelProvider extends PanelProvider
         foreach ($packages as $package => $namespace) {
             $panel
                 ->discoverResources(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Resources', $package)),
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Lobby/Resources', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Lobby\\Resources',
                 )
                 ->discoverPages(
-                    in: base_path(sprintf('vendor/rimba/%s/Http/UI/Lobby/Pages', $package)),
+                    in: base_path(sprintf('vendor/rimba/%s/src/Http/UI/Lobby/Pages', $package)),
                     for: 'Rimba\\'.$namespace.'\\Http\\UI\\Lobby\\Pages',
                 );
         }
