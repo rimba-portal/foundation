@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Rimba\Foundation\Http\UI\Staff\Pages;
 
 use BackedEnum;
-use Filament\Support\Icons\Heroicon;
 use Rimba\Base\Pages\JsonTablePage;
 use Rimba\Foundation\FoundationServiceProvider;
 use UnitEnum;
@@ -18,7 +17,7 @@ class ToolsPage extends JsonTablePage
 
     protected static string|UnitEnum|null $navigationGroup = 'Knowledge';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::ArrowSmallRight;
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-wrench-screwdriver';
 
     protected ?string $subheading = '';
 
