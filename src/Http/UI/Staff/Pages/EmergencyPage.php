@@ -14,6 +14,7 @@ use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
 use Filament\Support\Enums\TextSize;
+use Illuminate\Support\HtmlString;
 use UnitEnum;
 
 class EmergencyPage extends Page implements HasSchemas
@@ -54,17 +55,44 @@ class EmergencyPage extends Page implements HasSchemas
 
                 // 1. Social Media Channel
                 if (! empty($escalation['smp'])) {
+                    $qrvalue = $escalation['smp']['cto'] ?? '#';
                     $channelEntries[] = TextEntry::make("esc_wa_{$index}_{$escIndex}")
                         ->hiddenLabel()
                         ->getStateUsing(fn (): mixed => $escalation['smp']['label'] ?? 'Social Media Platform')
-                        ->url($escalation['smp']['cto'] ?? '#')
-                        ->openUrlInNewTab()
                         ->prefixAction(
-                            Action::make('smp_prefix')
+                            Action::make('link_to_social_media')
                                 ->icon('heroicon-m-chat-bubble-left-right')
+                                ->url($qrvalue)
+                                ->openUrlInNewTab()
                         )->suffixAction(
-                            Action::make('smp_suffix')
+                            Action::make('Qrcode_to_social_media')
                                 ->icon('heroicon-m-qr-code')
+                                // ->extraAttributes([
+                                //     'x-on:click.stop' => 'true',
+                                //     'style' => 'pointer-events: auto;'
+                                // ])
+                                ->modalHeading('Scan QR Code')
+                                ->modalWidth('sm')
+                                ->modalSubmitAction(false)
+                                ->modalCancelActionLabel('Close')
+                                ->modalContent(function () use ($qrvalue): HtmlString {
+                                    // Safely grab the URL value from your loop context
+
+                                    return new HtmlString('
+                    <div class="flex flex-col items-center justify-center p-6 text-center">
+                        <div class="p-3 bg-white rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                            <img 
+                                src="https://quickchart.io/qr?text='.urlencode($qrvalue).'&size=350" 
+                                alt="QR code to scan" 
+                                class="w-64 h-64 object-contain mx-auto"
+                            />
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 break-all max-w-xs">
+                            '.e($qrvalue).'
+                        </p>
+                    </div>
+                ');
+                                })
                         )
                         ->color('success')
                         ->weight('medium');
@@ -94,6 +122,36 @@ class EmergencyPage extends Page implements HasSchemas
                         ->prefixAction(
                             Action::make('map_prefix')
                                 ->icon('heroicon-m-map-pin')
+                        )
+                        ->suffixAction(
+                            Action::make('Qrcode_to_social_media')
+                                ->icon('heroicon-m-qr-code')
+                                // ->extraAttributes([
+                                //     'x-on:click.stop' => 'true',
+                                //     'style' => 'pointer-events: auto;'
+                                // ])
+                                ->modalHeading('Scan QR Code')
+                                ->modalWidth('sm')
+                                ->modalSubmitAction(false)
+                                ->modalCancelActionLabel('Close')
+                                ->modalContent(function () use ($qrvalue): HtmlString {
+                                    // Safely grab the URL value from your loop context
+
+                                    return new HtmlString('
+                    <div class="flex flex-col items-center justify-center p-6 text-center">
+                        <div class="p-3 bg-white rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                            <img 
+                                src="https://quickchart.io/qr?text='.urlencode($qrvalue).'&size=350" 
+                                alt="QR code to scan" 
+                                class="w-64 h-64 object-contain mx-auto"
+                            />
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 break-all max-w-xs">
+                            '.e($qrvalue).'
+                        </p>
+                    </div>
+                ');
+                                })
                         )
                         ->color('info')
                         ->size(TextSize::ExtraSmall);

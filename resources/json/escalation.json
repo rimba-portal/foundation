@@ -124,55 +124,98 @@
     ],
     "sensitive": [
         {
-            "title": "Whistle Blowing","icon": "bites-es-whistle","description": "Escalate",
+            "title": "Whistle Blowing",
+            "icon": "bites-es-whistle",
+            "description": "Escalate",
             "escalation": [
                 {
                     "name": "Talk to your superior"
                 },
                 {
-                    "name": "HR Director","email": {"label": "Email to HR Director","cto": "mailto:"}
+                    "name": "HR Director",
+                    "email": {
+                        "label": "Email to HR Director",
+                        "cto": "mailto:azrulazhan.razali@amkor.com"
+                    }
                 },
                 {
-                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                    "name": "Business Integrity Hotline",
+                    "call": {
+                        "label": "Call 1-800-81-1200",
+                        "cto": "tel:1800811200"
+                    }
                 }
             ]
-        },        {
-            "title": "Sexual Harassment","icon": "bites-es-sexharass","description": "Escalate",
+        },
+        {
+            "title": "Sexual Harassment",
+            "icon": "bites-es-sexharass",
+            "description": "Escalate",
             "escalation": [
                 {
                     "name": "Talk to your superior"
                 },
                 {
-                    "name": "HR Manager","smp": {"label": "Whatsapp to HR Manager","cto": "wa:"}
+                    "name": "HR Manager",
+                    "smp": {
+                        "label": "Whatsapp to HR Manager",
+                        "cto": "https://wa.me/60196239239"
+                    }
                 },
                 {
-                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                    "name": "Business Integrity Hotline",
+                    "call": {
+                        "label": "Call 1-800-81-1200",
+                        "cto": "tel:1800811200"
+                    }
                 }
             ]
-        },        {
-            "title": "Discrimination","icon": "bites-es-discrimination","description": "Discrimination",
+        },
+        {
+            "title": "Discrimination",
+            "icon": "bites-es-discrimination",
+            "description": "Discrimination",
             "escalation": [
                 {
                     "name": "Talk to your superior"
                 },
                 {
-                    "name": "HR Director","email": {"label": "Email to HR Director","cto": "mailto:"}
+                    "name": "HR Director",
+                    "email": {
+                        "label": "Email to HR Director",
+                        "cto": "mailto:azrulazhan.razali@amkor.com"
+                    }
                 },
                 {
-                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                    "name": "Business Integrity Hotline",
+                    "call": {
+                        "label": "Call 1-800-81-1200",
+                        "cto": "tel:1800811200"
+                    }
                 }
             ]
-        },        {
-            "title": "Bribery","icon": "bites-es-bribery","description": "Escalate",
+        },
+        {
+            "title": "Bribery",
+            "icon": "bites-es-bribery",
+            "description": "Escalate",
             "escalation": [
                 {
                     "name": "Talk to your superior"
                 },
                 {
-                    "name": "HR Director","email": {"label": "Email to HR Director","cto": "mailto:"}
+                    "name": "HR Director",
+                    "email": {
+                        "label": "Email to HR Director",
+                        "cto": "mailto:azrulazhan.razali@amkor.com"
+                    }
                 },
                 {
-                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                    "name": "Business Integrity Hotline",
+                    "call": {
+                        "label": "Call 1-800-81-1200",
+                        "cto": "tel:1800811200"
+                    }
                 }
             ]
         }
