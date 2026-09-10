@@ -61,11 +61,11 @@ class TeamPanelProvider extends PanelProvider
 
         return $panel
             ->navigationGroups([
-                'Workforce',
-                'Operations',
-                'Request Flow',
+                'Workflow',
+                'Offerings',
+                'Resource',
                 'Knowledge',
-                'Settings',
+                'Staffing',
             ])
             ->pages([
                 Dashboard::class,

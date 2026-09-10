@@ -1,0 +1,180 @@
+{
+    "emergency": [
+        {
+            "title": "1. Injuries & Medical Crises",
+            "icon": "bites-ee-injury",
+            "description": "Severe workplace injuries, sudden illnesses, or unconsciousness",
+            "escalation": [
+                {
+                    "name": "In-house Clinic / Safety & Health Office",
+                    "call": {
+                        "label": "Call ext 193 / ext 591",
+                        "cto": "tel:999"
+                    },
+                    "map": {
+                        "label": "15KM, Jln Klang Banting, Telok Panglima Garang, 42507 Telok Panglima Garang, Selangor",
+                        "cto": "https://maps.app.goo.gl/X72fKcJ5idzNitjw5"
+                    }
+                },
+                {
+                    "name": "Ambulance Services",
+                    "call": {
+                        "label": "Call 999",
+                        "cto": "tel:999"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "2. Fire & Explosion",
+            "icon": "bites-ee-fire",
+            "description": "Smoke, structural fires, or sparks in industrial operating areas",
+            "escalation": [
+                {
+                    "name": "Emergency Response Team",
+                    "call": {
+                        "label": "Call ext 591",
+                        "cto": "tel:999"
+                    }
+                },
+                {
+                    "name": "Balai Bomba dan Penyelamat Teluk Panglima Garang",
+                    "call": {
+                        "label": "Call 999",
+                        "cto": "tel:999"
+                    },
+                    "map": {
+                        "label": "13, Jln Klang Banting, 42600 Jenjarom, Selangor VFRM+R8 Jenjarom, Selangor",
+                        "cto": "https://maps.app.goo.gl/iVuu9gNLkTaDaDVd6"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "3. Blackout / Power Fault",
+            "icon": "bites-ee-power",
+            "description": "Total facility power outage, substation tripping, or electrical failure hazards",
+            "escalation": [
+                {
+                    "name": "Facility Department (Power House)",
+                    "call": {
+                        "label": "Call ext 196/197",
+                        "cto": "tel:999"
+                    }
+                },
+                {
+                    "name": "TNB Breakdown Hotline (Tenaga Nasional)",
+                    "call": {
+                        "label": "Call 15454",
+                        "cto": "tel:15454"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "4. Security Breach / Intruder",
+            "icon": "bites-ee-security",
+            "description": "Unauthorized site entry, property theft, property damage, or workplace violence",
+            "escalation": [
+                {
+                    "name": "Main Guard House (Security)",
+                    "call": {
+                        "label": "Call ext 196/197",
+                        "cto": "tel:999"
+                    }
+                },
+                {
+                    "name": "Balai Polis Telok Panglima Garang",
+                    "call": {
+                        "label": "Call 03-31227222",
+                        "cto": "tel:60331227222"
+                    },
+                    "map": {
+                        "label": "Jalan Temenggong, Taman Desa Wira, 42500 Telok Panglima Garang, Selangor WF7F+WV Telok Panglima Garang, Selangor",
+                        "cto": "https://maps.app.goo.gl/9m7snhg1Fj66temL9"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "5. Hazardous Material Spill",
+            "icon": "bites-ee-hazard",
+            "description": "Chemical leakages, gas emissions, or toxic liquid waste spills on-site",
+            "escalation": [
+                {
+                    "name": "Safety & Health Office (EHS Officer)",
+                    "call": {
+                        "label": "Call ext 193 / ext 591",
+                        "cto": "tel:999"
+                    }
+                },
+                {
+                    "name": "Balai Bomba dan Penyelamat Teluk Panglima Garang",
+                    "call": {
+                        "label": "Call 999",
+                        "cto": "tel:999"
+                    },
+                    "map": {
+                        "label": "13, Jln Klang Banting, 42600 Jenjarom, Selangor VFRM+R8 Jenjarom, Selangor",
+                        "cto": "https://maps.app.goo.gl/iVuu9gNLkTaDaDVd6"
+                    }
+                }
+            ]
+        }
+    ],
+    "sensitive": [
+        {
+            "title": "Whistle Blowing","icon": "bites-es-whistle","description": "Escalate",
+            "escalation": [
+                {
+                    "name": "Talk to your superior"
+                },
+                {
+                    "name": "HR Director","email": {"label": "Email to HR Director","cto": "mailto:"}
+                },
+                {
+                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                }
+            ]
+        },        {
+            "title": "Sexual Harassment","icon": "bites-es-sexharass","description": "Escalate",
+            "escalation": [
+                {
+                    "name": "Talk to your superior"
+                },
+                {
+                    "name": "HR Manager","smp": {"label": "Whatsapp to HR Manager","cto": "wa:"}
+                },
+                {
+                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                }
+            ]
+        },        {
+            "title": "Discrimination","icon": "bites-es-discrimination","description": "Discrimination",
+            "escalation": [
+                {
+                    "name": "Talk to your superior"
+                },
+                {
+                    "name": "HR Director","email": {"label": "Email to HR Director","cto": "mailto:"}
+                },
+                {
+                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                }
+            ]
+        },        {
+            "title": "Bribery","icon": "bites-es-bribery","description": "Escalate",
+            "escalation": [
+                {
+                    "name": "Talk to your superior"
+                },
+                {
+                    "name": "HR Director","email": {"label": "Email to HR Director","cto": "mailto:"}
+                },
+                {
+                    "name": "Business Integrity Hotline","call": {"label": "Call 1-800-81-1200","cto": "tel:1800811200"}
+                }
+            ]
+        }
+    ]
+}

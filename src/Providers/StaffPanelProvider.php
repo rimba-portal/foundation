@@ -75,7 +75,7 @@ class StaffPanelProvider extends PanelProvider
                 'Catalog',
                 'Knowledge',
                 'Learning',
-                'Emergency',
+                'Escalation',
                 'Resources',
                 'Systems',
             ])

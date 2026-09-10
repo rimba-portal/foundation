@@ -13,17 +13,18 @@ use Filament\Schemas\Components\Section;
 use Filament\Schemas\Concerns\InteractsWithSchemas;
 use Filament\Schemas\Contracts\HasSchemas;
 use Filament\Schemas\Schema;
+use Filament\Support\Enums\TextSize;
 use UnitEnum;
 
-class ContactSomeonePage extends Page implements HasSchemas
+class EmergencyPage extends Page implements HasSchemas
 {
     use InteractsWithSchemas;
 
     protected static string|UnitEnum|null $navigationGroup = 'Escalation';
 
-    protected static string|BackedEnum|null $navigationIcon = 'bites-s-phone-call';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-s-urgent';
 
-    protected static ?string $navigationLabel = 'Contact Someone';
+    protected static ?string $navigationLabel = 'Emergency';
 
     protected static ?int $navigationSort = 62;
 
@@ -41,7 +42,7 @@ class ContactSomeonePage extends Page implements HasSchemas
             $fullData = json_decode($jsonContent, true) ?? [];
         }
 
-        $items = $fullData['sensitive'] ?? [];
+        $items = $fullData['emergency'] ?? [];
         $sections = [];
 
         foreach ($items as $index => $item) {
@@ -116,7 +117,7 @@ class ContactSomeonePage extends Page implements HasSchemas
                 if ($channelEntries === []) {
                     $channelEntries[] = TextEntry::make("esc_fallback_{$index}_{$escIndex}")
                         ->hiddenLabel()
-                        ->getStateUsing(fn (): string => '');
+                        ->getStateUsing(fn (): string => 'No communication channels configured.');
                 }
 
                 // Wrap all active channel links neatly inside a Level card section
@@ -129,9 +130,9 @@ class ContactSomeonePage extends Page implements HasSchemas
             $sections[] = Section::make($item['title'] ?? 'Incident Response')
                 ->description($item['description'] ?? '')
                 ->icon($item['icon'] ?? 'bites-e-alarm')
-                // ->aside()
+                ->aside()
                 ->schema([
-                    Grid::make(3)->schema($levelSections),
+                    Grid::make(2)->schema($levelSections),
                 ]);
         }
 
