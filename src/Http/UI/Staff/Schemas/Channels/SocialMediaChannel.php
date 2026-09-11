@@ -9,10 +9,8 @@ use Filament\Infolists\Components\TextEntry;
 
 class SocialMediaChannel extends BaseEscalationChannel
 {
-    public function make(
-        string $name,
-        array $config
-    ): TextEntry {
+    public function make(string $name, array $config): TextEntry
+    {
 
         $url = $config['cto'] ?? '#';
 

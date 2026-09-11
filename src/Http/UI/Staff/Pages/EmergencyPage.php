@@ -25,22 +25,23 @@ class EmergencyPage extends Page implements HasSchemas
 
     protected static ?int $navigationSort = 63;
 
-    protected static ?string $title = 'Emergency Response Level Matrix';
+    protected static ?string $title = 'Emergency Response Escalation Matrix';
 
     protected string $view = 'bites::pages.call';
 
     public function contactInfolist(
-        Schema $schema,
-        EscalationDataLoader $loader,
-        EscalationSchemaBuilder $builder,
+        Schema $schema
     ): Schema {
 
-        return $schema
-            ->schema(
-                $builder->build(
-                    $loader->get('emergency'),
-                    2,
-                )
-            );
+        $escalationDataLoader = app(EscalationDataLoader::class);
+        $escalationSchemaBuilder = app(EscalationSchemaBuilder::class);
+
+        return $schema->schema(
+            $escalationSchemaBuilder->build(
+                $escalationDataLoader->get('emergency'),
+                2,
+                true
+            )
+        );
     }
 }

@@ -6,8 +6,5 @@ namespace Rimba\Foundation\Http\UI\Staff\Schemas;
 
 interface EscalationChannelInterface
 {
-    public function make(
-        string $name,
-        array $config
-    ): mixed;
+    public function make(string $name, array $config): mixed;
 }

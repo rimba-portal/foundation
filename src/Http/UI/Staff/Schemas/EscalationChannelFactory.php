@@ -6,11 +6,8 @@ namespace Rimba\Foundation\Http\UI\Staff\Schemas;
 
 class EscalationChannelFactory
 {
-    public function build(
-        array $escalation,
-        int $index,
-        int $escIndex
-    ): array {
+    public function build(array $escalation, int $index, int $escIndex): array
+    {
 
         $channels = [
             'smp' => Channels\SocialMediaChannel::class,
@@ -29,7 +26,7 @@ class EscalationChannelFactory
 
             $entries[] = app($class)
                 ->make(
-                    "{$key}_{$index}_{$escIndex}",
+                    "{$key}",// "",
                     $escalation[$key]
                 );
         }

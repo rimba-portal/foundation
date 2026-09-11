@@ -14,10 +14,8 @@ class EscalationSchemaBuilder
         protected EscalationChannelFactory $factory
     ) {}
 
-    public function build(
-        array $items,
-        int $columns = 2
-    ): array {
+    public function build(array $items, int $columns = 2, bool $aside = false): array
+    {
 
         $sections = [];
 
@@ -45,8 +43,8 @@ class EscalationSchemaBuilder
 
                 $levelSections[] = Section::make(
                     'Level '.($escIndex + 1)
-                    .' : '
-                    .($escalation['name'] ?? 'Contact')
+                        .' : '
+                        .($escalation['name'] ?? 'Contact')
                 )
                     ->compact()
                     ->secondary()
@@ -63,6 +61,7 @@ class EscalationSchemaBuilder
                     $item['icon']
                         ?? 'heroicon-o-exclamation-circle'
                 )
+                ->aside($aside)
                 ->schema([
                     Grid::make($columns)
                         ->schema($levelSections),

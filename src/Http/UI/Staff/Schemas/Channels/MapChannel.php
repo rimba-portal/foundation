@@ -6,6 +6,7 @@ namespace Rimba\Foundation\Http\UI\Staff\Schemas\Channels;
 
 use Filament\Actions\Action;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Support\Enums\TextSize;
 
 class MapChannel extends BaseEscalationChannel
 {
@@ -21,15 +22,15 @@ class MapChannel extends BaseEscalationChannel
             ->getStateUsing(
                 fn () => $config['label']
             )
-            ->url($url)
-            ->openUrlInNewTab()
             ->prefixAction(
                 Action::make("map_{$name}")
                     ->icon('heroicon-m-map-pin')
+                    ->url($url)
+                    ->openUrlInNewTab()
             )
             ->suffixAction(
                 $this->qrAction($url)
             )
-            ->color('info');
+            ->size(TextSize::ExtraSmall);
     }
 }

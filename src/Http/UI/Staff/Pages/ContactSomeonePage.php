@@ -25,22 +25,22 @@ class ContactSomeonePage extends Page implements HasSchemas
 
     protected static ?int $navigationSort = 62;
 
-    protected static ?string $title = 'Emergency Response Level Matrix';
+    protected static ?string $title = 'Sensitive Matter Escalation Matrix';
 
     protected string $view = 'bites::pages.call';
 
     public function contactInfolist(
-        Schema $schema,
-        EscalationDataLoader $loader,
-        EscalationSchemaBuilder $builder,
+        Schema $schema
     ): Schema {
 
-        return $schema
-            ->schema(
-                $builder->build(
-                    $loader->get('sensitive'),
-                    3,
-                )
-            );
+        $escalationDataLoader = app(EscalationDataLoader::class);
+        $escalationSchemaBuilder = app(EscalationSchemaBuilder::class);
+
+        return $schema->schema(
+            $escalationSchemaBuilder->build(
+                $escalationDataLoader->get('sensitive'),
+                3
+            )
+        );
     }
 }
