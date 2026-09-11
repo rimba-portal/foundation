@@ -10,9 +10,9 @@ use UnitEnum;
 
 class ReportAnIssuePage extends Page
 {
-    protected static string|UnitEnum|null $navigationGroup = 'Emergency';
+    protected static string|UnitEnum|null $navigationGroup = 'Escalation';
 
-    protected static string|BackedEnum|null $navigationIcon = 'bites-s-urgent';
+    protected static string|BackedEnum|null $navigationIcon = 'bites-s-fault';
 
     protected static ?string $navigationLabel = 'Report an issue';
 
