@@ -7,9 +7,9 @@
             "escalation": [
                 {
                     "name": "In-house Clinic / Safety & Health Office",
-                    "call": {
-                        "label": "Call ext 193 / ext 591",
-                        "cto": "tel:999"
+                    "smp": {
+                        "label": "Whatsapp to ATM Nurse",
+                        "cto": "https://wa.me/60166631338"
                     },
                     "map": {
                         "label": "15KM, Jln Klang Banting, Telok Panglima Garang, 42507 Telok Panglima Garang, Selangor",
@@ -19,7 +19,7 @@
                 {
                     "name": "Ambulance Services",
                     "call": {
-                        "label": "Call 999",
+                        "label": "Call MERS 999",
                         "cto": "tel:999"
                     }
                 }
@@ -34,13 +34,13 @@
                     "name": "Emergency Response Team",
                     "call": {
                         "label": "Call ext 591",
-                        "cto": "tel:999"
+                        "cto": "tel:591"
                     }
                 },
                 {
                     "name": "Balai Bomba dan Penyelamat Teluk Panglima Garang",
                     "call": {
-                        "label": "Call 999",
+                        "label": "Call MERS 999",
                         "cto": "tel:999"
                     },
                     "map": {
@@ -59,7 +59,7 @@
                     "name": "Facility Department (Power House)",
                     "call": {
                         "label": "Call ext 196/197",
-                        "cto": "tel:999"
+                        "cto": "tel:196"
                     }
                 },
                 {
@@ -111,7 +111,7 @@
                 {
                     "name": "Balai Bomba dan Penyelamat Teluk Panglima Garang",
                     "call": {
-                        "label": "Call 999",
+                        "label": "Call MERS 999",
                         "cto": "tel:999"
                     },
                     "map": {
@@ -126,7 +126,7 @@
         {
             "title": "Whistle Blowing",
             "icon": "bites-es-whistle",
-            "description": "Escalate",
+            "description": "If you wish to report a violation of a policy, inaccurate business records or any other ethical or legal issue you may encounter at work",
             "escalation": [
                 {
                     "name": "Talk to your superior"
