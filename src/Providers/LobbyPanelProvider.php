@@ -79,7 +79,7 @@ class LobbyPanelProvider extends PanelProvider
                 'Emergency',
             ])
             ->pages([
-                Dashboard::class,
+                // Dashboard::class,
             ])
             ->widgets([
                 AccountWidget::class,
