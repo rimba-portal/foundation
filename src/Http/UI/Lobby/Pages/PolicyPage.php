@@ -15,7 +15,9 @@ class PolicyPage extends Page
 
     protected static ?int $navigationSort = 3;
 
-    protected static ?string $title = 'You must comply to company rules';
+    protected static ?string $title = 'Policy';
+
+    protected ?string $subheading = 'You must comply to company rules';
 
     protected string $view = 'bites::pages.simple';
 }

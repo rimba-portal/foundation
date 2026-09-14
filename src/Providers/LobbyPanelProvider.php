@@ -47,6 +47,7 @@ class LobbyPanelProvider extends PanelProvider
             ->multiFactorAuthentication([
                 AppAuthentication::make(),
             ])
+            ->topNavigation()
             ->id(config('bites.ui.panels.lobby.0', 'lobby'))
             ->path(config('bites.ui.panels.lobby.1', 'lobby'))
             ->colors(['primary' => config('bites.ui.panels.lobby.2', Color::Blue)])

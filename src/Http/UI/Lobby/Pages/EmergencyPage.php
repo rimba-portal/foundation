@@ -22,7 +22,9 @@ class EmergencyPage extends Page implements HasSchemas
 
     protected static ?int $navigationSort = 4;
 
-    protected static ?string $title = 'Emergency Response Escalation Matrix';
+    protected static ?string $title = 'Emergency';
+
+    protected ?string $subheading = 'Emergency Response Escalation Matrix';
 
     protected string $view = 'bites::pages.call';
 
