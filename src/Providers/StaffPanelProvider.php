@@ -9,14 +9,15 @@ use Filament\Http\Middleware\Authenticate;
 use Filament\Http\Middleware\AuthenticateSession;
 use Filament\Http\Middleware\DisableBladeIconComponents;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
+use Filament\Navigation\NavigationGroup;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
-use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
-use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
+use Illuminate\Foundation\Http\Middleware\PreventRequestForgery; // Import the Action class
+use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
@@ -70,14 +71,14 @@ class StaffPanelProvider extends PanelProvider
 
         return $panel
             ->navigationGroups([
-                'ToDo',
-                'Accountables',
-                'Catalog',
-                'Knowledge',
-                'Learning',
-                'Escalation',
-                'Resources',
-                'Systems',
+                NavigationGroup::make()->label('ToDo'),
+                NavigationGroup::make()->label('Accountables')->collapsed(),
+                NavigationGroup::make()->label('Catalog')->collapsed(),
+                NavigationGroup::make()->label('Knowledge')->collapsed(),
+                NavigationGroup::make()->label('Learning')->collapsed(),
+                NavigationGroup::make()->label('Escalation'),
+                NavigationGroup::make()->label('Resources')->collapsed(),
+                NavigationGroup::make()->label('Systems')->collapsed(),
             ])
             ->pages([
                 // Dashboard::class,
