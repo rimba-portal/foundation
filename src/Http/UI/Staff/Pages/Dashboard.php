@@ -37,9 +37,9 @@ class Dashboard extends BaseDashboard
     {
         // Only these widgets appear on the Dashboard
         return [
-            UnassignedTasksByRoleWidget::class,
-            MyPendingTasksWidget::class,
-            TaskStatsWidget::class,
+            // UnassignedTasksByRoleWidget::class,
+            // MyPendingTasksWidget::class,
+            // TaskStatsWidget::class,
         ];
     }
 }
