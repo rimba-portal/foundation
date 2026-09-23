@@ -34,6 +34,7 @@ class StaffPanelProvider extends PanelProvider
     {
         $panel
             ->default()
+            ->sidebarWidth('15rem')
             ->login(Login::class)
             ->registration(Register::class)
             ->passwordReset(

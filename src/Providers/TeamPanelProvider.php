@@ -33,6 +33,7 @@ class TeamPanelProvider extends PanelProvider
         // dd(config('bites'));
         $panel
             ->default()
+            ->sidebarWidth('15rem')
             ->login(Login::class)
             ->id(config('bites.ui.panels.team.0', 'team'))
             ->path(config('bites.ui.panels.team.1', 'team'))
