@@ -15,6 +15,7 @@
         "laravel/framework": "^13.0",
         "rimba/asas": "^1.4",
         "rimba/bantu": "^1.4",
+        "rimba/boleh": "^1.4",
         "rimba/citra": "^1.4",
         "rimba/jalur": "^1.4",
         "rimba/janji": "^1.4",
