@@ -42,7 +42,7 @@ class DiscoverCanAccessPanels
 
         return collect($this->panels)
             ->filter(fn (string $panelId) => $panelAccessResolverContract->canAccess($user, $panelId))
-            ->map(function (string $panelId) use ($currentPanel): ?\Filament\Actions\Action {
+            ->map(function (string $panelId) use ($currentPanel): ?Action {
                 $panelInstance = Filament::getPanel($panelId);
                 $url = $panelInstance?->getUrl();
 
