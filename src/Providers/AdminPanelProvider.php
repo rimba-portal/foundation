@@ -22,6 +22,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Rimba\Who\Actions\ViewUserAttributesAction;
 use Rimba\Who\Http\Middleware\EnsureFaceVerification;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
@@ -39,7 +40,9 @@ class AdminPanelProvider extends PanelProvider
             ->colors(['primary' => config('bites.ui.panels.admin.2', Color::Rose)])
             ->brandName(config('bites.ui.panels.admin.3', 'Administration'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.admin.4', 'filament.admin.pages.dashboard')))
-
+            ->userMenuItems([
+                ViewUserAttributesAction::make(),
+            ])
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Admin/Resources'), for: 'App\\Http\\UI\\Admin\\Resources')
             ->discoverPages(in: app_path('Http/UI/Admin/Pages'), for: 'App\\Http\\UI\\Admin\\Pages')

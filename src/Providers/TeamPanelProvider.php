@@ -22,6 +22,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Rimba\Who\Actions\ViewUserAttributesAction;
 use Rimba\Who\Http\Middleware\EnsureFaceVerification;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
@@ -40,7 +41,9 @@ class TeamPanelProvider extends PanelProvider
             ->colors(['primary' => config('bites.ui.panels.team.2', Color::Stone)])
             ->brandName(config('bites.ui.panels.team.3', 'Team'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.team.4', 'filament.team.pages.dashboard')))
-
+            ->userMenuItems([
+                ViewUserAttributesAction::make(),
+            ])
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Team/Resources'), for: 'App\\Http\\UI\\Team\\Resources')
             ->discoverPages(in: app_path('Http/UI/Team/Pages'), for: 'App\Http\UI\Team\Pages')

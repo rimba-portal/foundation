@@ -21,6 +21,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Rimba\Who\Actions\ViewUserAttributesAction;
 use Rimba\Who\Http\Middleware\EnsureFaceVerification;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
@@ -46,7 +47,9 @@ class StaffPanelProvider extends PanelProvider
             ->colors(['primary' => config('bites.ui.panels.staff.2', Color::Cyan)])
             ->brandName(config('bites.ui.panels.staff.3', 'Staff Portal'))
             ->homeUrl(fn (): string => route(config('bites.ui.panels.staff.4', 'filament.staff.pages.dashboard')))
-
+            ->userMenuItems([
+                ViewUserAttributesAction::make(),
+            ])
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Staff/Resources'), for: 'App\\Http\\UI\\Staff\\Resources')
             ->discoverPages(in: app_path('Http/UI/Staff/Pages'), for: 'App\\Http\\UI\\Staff\\Pages')
