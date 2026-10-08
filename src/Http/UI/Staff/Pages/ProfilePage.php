@@ -42,16 +42,16 @@ class ProfilePage extends Page implements HasActions, HasSchemas
 
     protected string $view = 'bites::pages.profile';
 
-    public function getHeaderWidgetsColumns(): int|array
-    {
-        return 4;
-    }
+    // public function getHeaderWidgetsColumns(): int|array
+    // {
+    //     return 4;
+    // }
 
     protected function getHeaderWidgets(): array
     {
         return [
             StaffInfoWidget::class,
-            RolesWidget::class,
+            // RolesWidget::class,
         ];
     }
 
