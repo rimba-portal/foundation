@@ -22,10 +22,10 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Rimba\Who\Actions\ViewUserAttributesAction;
 use Rimba\Who\Http\Middleware\EnsureFaceVerification;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
+use Rimba\Who\Http\UI\Auth\ViewUserAttributesAction;
 
 class TeamPanelProvider extends PanelProvider
 {

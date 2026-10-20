@@ -21,13 +21,13 @@ use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Rimba\Who\Actions\ViewUserAttributesAction;
 use Rimba\Who\Http\Middleware\EnsureFaceVerification;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\UI\Auth\Login;
 use Rimba\Who\Http\UI\Auth\Register;
 use Rimba\Who\Http\UI\Auth\RequestPasswordReset;
 use Rimba\Who\Http\UI\Auth\ResetPassword;
+use Rimba\Who\Http\UI\Auth\ViewUserAttributesAction;
 
 class StaffPanelProvider extends PanelProvider
 {
