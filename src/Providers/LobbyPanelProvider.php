@@ -29,6 +29,7 @@ use Rimba\Who\Http\UI\Auth\Login;
 use Rimba\Who\Http\UI\Auth\Register;
 use Rimba\Who\Http\UI\Auth\RequestPasswordReset;
 use Rimba\Who\Http\UI\Auth\ResetPassword;
+use Rimba\Who\Http\UI\Auth\ViewUserAttributesAction;
 
 class LobbyPanelProvider extends PanelProvider
 {
@@ -46,6 +47,9 @@ class LobbyPanelProvider extends PanelProvider
             )
             ->multiFactorAuthentication([
                 AppAuthentication::make(),
+            ])
+            ->userMenuItems([
+                ViewUserAttributesAction::make(),
             ])
             ->topNavigation()
             ->id(config('bites.ui.panels.lobby.0', 'lobby'))
