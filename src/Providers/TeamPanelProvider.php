@@ -22,6 +22,7 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Packstub\Flow\FlowPlugin;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\Middleware\EnsureSecurityLevel;
 use Rimba\Who\Http\UI\Auth\Login;
@@ -44,6 +45,7 @@ class TeamPanelProvider extends PanelProvider
             ->userMenuItems([
                 ViewUserAttributesAction::make(),
             ])
+            ->plugin(FlowPlugin::make()->navigationGroup('Workflow'))
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Team/Resources'), for: 'App\\Http\\UI\\Team\\Resources')
             ->discoverPages(in: app_path('Http/UI/Team/Pages'), for: 'App\Http\UI\Team\Pages')
@@ -65,9 +67,9 @@ class TeamPanelProvider extends PanelProvider
 
         return $panel
             ->navigationGroups([
-                'Workflow',
+                'Workflows',
                 'Offerings',
-                'Resource',
+                'Resources',
                 'Knowledge',
                 'Staffing',
             ])
