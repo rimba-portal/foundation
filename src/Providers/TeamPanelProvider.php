@@ -22,12 +22,12 @@ use Illuminate\Routing\Middleware\SubstituteBindings; // Import the Action class
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Packstub\Flow\FlowPlugin;
 use Packstub\FormBuilder\FormBuilderPlugin;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\Middleware\EnsureSecurityLevel;
 use Rimba\Who\Http\UI\Auth\Login;
 use Rimba\Who\Http\UI\Auth\ViewUserAttributesAction;
-use Rimba\Work\WorkPlugin;
 
 class TeamPanelProvider extends PanelProvider
 {
@@ -47,8 +47,8 @@ class TeamPanelProvider extends PanelProvider
                 ViewUserAttributesAction::make(),
             ])
             ->plugins([
-                WorkPlugin::make()->teamWorkspace()->lifecycleManagement()->executionDiagnostics(),
                 FormBuilderPlugin::make()->navigationGroup('Form'),
+                FlowPlugin::make()->navigationGroup('Flow'),
             ])
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Team/Resources'), for: 'App\\Http\\UI\\Team\\Resources')

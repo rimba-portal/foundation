@@ -28,7 +28,6 @@ use Rimba\Who\Http\UI\Auth\Register;
 use Rimba\Who\Http\UI\Auth\RequestPasswordReset;
 use Rimba\Who\Http\UI\Auth\ResetPassword;
 use Rimba\Who\Http\UI\Auth\ViewUserAttributesAction;
-use Rimba\Work\WorkPlugin;
 
 class StaffPanelProvider extends PanelProvider
 {
@@ -51,7 +50,7 @@ class StaffPanelProvider extends PanelProvider
             ->userMenuItems([
                 ViewUserAttributesAction::make(),
             ])
-            ->plugin(WorkPlugin::make()->staffWorkspace())
+            // ->plugin(WorkPlugin::make()->staffWorkspace())
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Staff/Resources'), for: 'App\\Http\\UI\\Staff\\Resources')
             ->discoverPages(in: app_path('Http/UI/Staff/Pages'), for: 'App\\Http\\UI\\Staff\\Pages')
