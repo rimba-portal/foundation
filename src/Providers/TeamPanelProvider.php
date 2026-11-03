@@ -22,6 +22,9 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Packstub\Flow\FlowPlugin;
 use Packstub\FormBuilder\FormBuilderPlugin;
+use Rimba\Document\Models\Document;
+use Rimba\Document\Models\DocumentRevision;
+use Rimba\Request\Flow\Actions\AssignActionToRoles;
 use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\Middleware\EnsureSecurityLevel;
 use Rimba\Who\Http\UI\Auth\Login;
@@ -47,7 +50,14 @@ class TeamPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FormBuilderPlugin::make()->navigationGroup('Workflow'),
-                FlowPlugin::make()->navigationGroup('Workflow'),
+                FlowPlugin::make()->navigationGroup('Workflow')
+                    ->models([
+                        Document::class,
+                        DocumentRevision::class,
+                    ])
+                    ->actions([
+                        AssignActionToRoles::class,
+                    ]),
             ])
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Team/Resources'), for: 'App\\Http\\UI\\Team\\Resources')
