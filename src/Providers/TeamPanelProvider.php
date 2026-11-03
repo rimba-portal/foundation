@@ -13,8 +13,6 @@ use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
 use Filament\Support\Colors\Color;
-use Filament\Widgets\AccountWidget;
-use Filament\Widgets\FilamentInfoWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
@@ -28,6 +26,7 @@ use Rimba\Who\Http\Middleware\EnsurePanelAccess;
 use Rimba\Who\Http\Middleware\EnsureSecurityLevel;
 use Rimba\Who\Http\UI\Auth\Login;
 use Rimba\Who\Http\UI\Auth\ViewUserAttributesAction;
+use Rimba\Who\Http\UI\Staff\Widgets\StaffInfoWidget;
 
 class TeamPanelProvider extends PanelProvider
 {
@@ -47,8 +46,8 @@ class TeamPanelProvider extends PanelProvider
                 ViewUserAttributesAction::make(),
             ])
             ->plugins([
-                FormBuilderPlugin::make()->navigationGroup('Form'),
-                FlowPlugin::make()->navigationGroup('Flow'),
+                FormBuilderPlugin::make()->navigationGroup('Workflow'),
+                FlowPlugin::make()->navigationGroup('Workflow'),
             ])
             // Discover for UI
             ->discoverResources(in: app_path('Http/UI/Team/Resources'), for: 'App\\Http\\UI\\Team\\Resources')
@@ -81,8 +80,7 @@ class TeamPanelProvider extends PanelProvider
                 Dashboard::class,
             ])
             ->widgets([
-                AccountWidget::class,
-                FilamentInfoWidget::class,
+                StaffInfoWidget::class,
             ])
             ->middleware([
                 EncryptCookies::class,
